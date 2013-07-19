@@ -312,10 +312,10 @@ def odf_create_table_cell_style(border=None, border_top=None,
                                 background_color=None, shadow=None,
                                 color=None):
                                 #parent='Standard'):
-    if border is not None:
-        border_bottom = border_top = border_left = border_right = None
-    if (border is None and border_bottom is None and border_top is None
-        and border_left is None and border_right is None):
+    if (border is not None or border_bottom is not None or border_top is not None
+        or border_left is  not None or border_right is not None):
+        if border is not None:
+            border_bottom = border_top = border_left = border_right = None
         border = make_table_cell_border_string()    # default border
     if color:
         color_string = __make_color_string(color)
